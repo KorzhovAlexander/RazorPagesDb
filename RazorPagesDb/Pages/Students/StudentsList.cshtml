@@ -1,0 +1,34 @@
+﻿@page
+@model RazorPagesDb.Pages.Students.StudentsList
+
+@{
+    ViewData["Title"] = "List students";
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <tbody>
+    @foreach (var item in Model.Students)
+    {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.FirstName
+            </td>
+            <td>
+                @item.LastName
+            </td>
+            <td>
+                <!--уже не помню как точно но  asp-route-id можно заменить на что-то другое в Detail.cshtml ебашишь {id:int} и что-то еще хз пох-->
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

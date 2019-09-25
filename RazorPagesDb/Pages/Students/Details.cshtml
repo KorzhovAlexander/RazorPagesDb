@@ -1,0 +1,16 @@
+﻿@page
+@model RazorPagesDb.Pages.Students.Details
+
+@{
+    ViewData["Title"] = "List students";
+}
+
+<h1>Detail</h1>
+<h5>@Model.Student.FirstName || @Model.Student.LastName</h5>
+
+<ul>
+    @foreach (var studentHomework in Model.Student.Homeworks)
+    {
+        <li>@studentHomework.Name</li>
+    }
+</ul>
